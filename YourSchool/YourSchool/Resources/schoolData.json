@@ -1,0 +1,17 @@
+[
+    {
+        "name": "원신흥중학교",
+        "category": "학교",
+        "city": "유성구",
+        "state": "대전",
+        "id": 1001,
+        "isFeatured": true,
+        "isFavorite": true,
+        "coordinates": {
+            "longitude": 127.34531979051518,
+            "latitude": 36.333065000000005
+        },
+        "description": "원신흥중학교.",
+        "imageName": "schoolLogo"
+    }
+]

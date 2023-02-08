@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (5.6.4)
+  - CenteredCollectionView (2.2.2)
+  - KakaoSDKCommon/Common (2.13.1)
+  - KakaoSDKNavi (2.13.1):
+    - KakaoSDKCommon/Common (= 2.13.1)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - CenteredCollectionView
+  - KakaoSDKNavi
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CenteredCollectionView
+    - KakaoSDKCommon
+    - KakaoSDKNavi
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  CenteredCollectionView: a9217908a698c386cbb98af11b596da48900b908
+  KakaoSDKCommon: a16807e19984a0a208c3117c7ef117f101a9a128
+  KakaoSDKNavi: bc3c7b5fc8fe4a958fc0a392a5918b0a51bcc849
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: 77b69d75de2f692df9b2a91d85393906fe93e911
+
+COCOAPODS: 1.11.3
