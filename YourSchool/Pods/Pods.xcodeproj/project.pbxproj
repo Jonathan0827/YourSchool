@@ -218,7 +218,7 @@
 		5421AF361C0DAB6F780E87F78D61A5A1 /* Combine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Combine.swift; path = Source/Combine.swift; sourceTree = "<group>"; };
 		5547DB52150B4F3AF625BA504DBAA77E /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
 		5680685431D8F3B327AB0C6F7B00E4E4 /* Pods-YourSchoolTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YourSchoolTests-dummy.m"; sourceTree = "<group>"; };
-		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60277EB4F05FE1CA1812B65CBC2BD3CA /* StringEncoding+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "StringEncoding+Alamofire.swift"; path = "Source/StringEncoding+Alamofire.swift"; sourceTree = "<group>"; };
 		665C0DFEE3CD9631A992B11B8C6D16AF /* Properties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = sources/KakaoSDKCommon/common/common/Properties.swift; sourceTree = "<group>"; };
 		66B02FFF57BDE7E666A10C743F2FD514 /* Pods-YourSchoolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YourSchoolTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 		977E503128265E65ADAAD56AC468BA1B /* KakaoSDKNavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKNavi.debug.xcconfig; sourceTree = "<group>"; };
 		9BF76C6AE79BBD0874A4543C36C06EA0 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		9D0E56404A234C3736519ADFC2F9CF78 /* KakaoSDKNavi */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KakaoSDKNavi; path = KakaoSDKNavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EC6EACB986EEA6FA2CEA728F0696D22 /* CenteredCollectionView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CenteredCollectionView.modulemap; sourceTree = "<group>"; };
 		A047AF58E9CC7C7823C7D5DA09328962 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		A1496B4C04555398FB76422FB95F2498 /* Pods-YourSchool-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YourSchool-dummy.m"; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		C839931F5775AB921EC0383B3EE2B8B3 /* Pods-YourSchool-YourSchoolUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YourSchool-YourSchoolUITests-dummy.m"; sourceTree = "<group>"; };
 		CA2999AC8F059B4D70EF88BDFDF0634E /* KakaoSDKNavi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KakaoSDKNavi-prefix.pch"; sourceTree = "<group>"; };
 		CA852E02894C2D3C68E1CCA666030041 /* KakaoSDKCommon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KakaoSDKCommon.modulemap; sourceTree = "<group>"; };
-		CA997216C79E94D0F521BFA46ED390B2 /* CenteredCollectionView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CenteredCollectionView; path = CenteredCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA997216C79E94D0F521BFA46ED390B2 /* CenteredCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CenteredCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA978981E5B07F58E35BFC2B3B75527 /* KakaoSDKCommon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KakaoSDKCommon.swift; path = sources/KakaoSDKCommon/common/KakaoSDKCommon.swift; sourceTree = "<group>"; };
 		CDBFBD04AFA0B42B16E7A2DE8C908E98 /* Urls.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Urls.swift; path = sources/KakaoSDKCommon/common/common/Urls.swift; sourceTree = "<group>"; };
 		CDC2A79FC9DB1DA67E22F990C8A263F0 /* Pods-YourSchoolTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YourSchoolTests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -402,7 +402,6 @@
 				D8B56348A484EFA9648B1D0E5BC34315 /* Common */,
 				39F64A402F4B74E179AC12ED0F11F2E6 /* Support Files */,
 			);
-			name = KakaoSDKCommon;
 			path = KakaoSDKCommon;
 			sourceTree = "<group>";
 		};
@@ -480,7 +479,6 @@
 				ED67594739AA2C53A6BB24BAFBD3A1E0 /* NaviModels.swift */,
 				5600B4C3D227F3CD3AF864E5864ADF57 /* Support Files */,
 			);
-			name = KakaoSDKNavi;
 			path = KakaoSDKNavi;
 			sourceTree = "<group>";
 		};
@@ -574,7 +572,6 @@
 				D8B661167A969D4298EF19C5FD9F30DE /* Validation.swift */,
 				E5E00384151517C936D67A537E560AB4 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -584,7 +581,6 @@
 				E7209862AE2B625FDB41F1B4367215C1 /* CenteredCollectionViewFlowLayout.swift */,
 				FD0A3BCB00A740660CAB36D1BBF4966B /* Support Files */,
 			);
-			name = CenteredCollectionView;
 			path = CenteredCollectionView;
 			sourceTree = "<group>";
 		};
@@ -594,7 +590,6 @@
 				C0771E8EDABBC490FE40C9A2AC38951C /* SwiftyJSON.swift */,
 				429A7885CA4742EFBA9BEFF929A52692 /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -624,8 +619,8 @@
 		D6FA2EA76490B72FB2D7E76C65AE9A1C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
-				CA997216C79E94D0F521BFA46ED390B2 /* CenteredCollectionView */,
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
+				CA997216C79E94D0F521BFA46ED390B2 /* CenteredCollectionView.framework */,
 				25BDA6E824AD6CBD857358A023C694AD /* KakaoSDKCommon */,
 				9D0E56404A234C3736519ADFC2F9CF78 /* KakaoSDKNavi */,
 				C05929FCB1AC70CF6764813C57C33298 /* Pods-YourSchool */,
@@ -815,7 +810,7 @@
 			);
 			name = CenteredCollectionView;
 			productName = CenteredCollectionView;
-			productReference = CA997216C79E94D0F521BFA46ED390B2 /* CenteredCollectionView */;
+			productReference = CA997216C79E94D0F521BFA46ED390B2 /* CenteredCollectionView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		9B398224FAFB5D176EDE5C09EDD8061E /* Pods-YourSchoolTests */ = {
@@ -916,7 +911,7 @@
 			);
 			name = Alamofire;
 			productName = Alamofire;
-			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */;
+			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1367,7 +1362,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CenteredCollectionView/CenteredCollectionView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CenteredCollectionView/CenteredCollectionView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1536,7 +1531,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1824,7 +1819,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CenteredCollectionView/CenteredCollectionView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CenteredCollectionView/CenteredCollectionView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1860,7 +1855,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
