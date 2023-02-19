@@ -28,7 +28,7 @@ struct goingToSchoolView: View {
                     }
                 }
                 .padding()
-                NavigationLink(destination: TestView(), label: {
+                NavigationLink(destination: AppleMapView(), label: {
                     HStack{
                         Text("길안내 시작")
                         Image(systemName: "arrow.right.circle.fill")

@@ -1,4 +1,8 @@
 import SwiftUI
+import CoreLocation
+import CoreLocationUI
+
+
 struct OnboardingView: View {
 	@Binding var isFirstLaunching: Bool
     @State var warnWonsinheung = false
@@ -151,6 +155,10 @@ struct nameSetupView: View {
 }
 struct greetingAndFeaturesView: View {
 	@Binding var isFirstLaunching: Bool
+
+
+	@AppStorage("locationAuth") var locationAuth = false
+	@StateObject var locationViewModel = LocationViewModel()
 	@State var viewLoaded = false
 	@AppStorage("userName") var userName: String = ""
 	@Binding var goNext: Bool
@@ -161,17 +169,57 @@ struct greetingAndFeaturesView: View {
 						.font(.title)
 						.fontWeight(.bold)
 						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1)))
-
-									Button("시작하기"){
-										withAnimation{
-											goNext = false
-											isFirstLaunching = false
-										}
-									}
-					Text("이 앱의 기능을 알아보겠습니다.")
+				if !locationAuth{
+					Text("위치 접근을 허용해주세요.")
 						.font(.title2)
 						.fontWeight(.bold)
-						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.7)))
+					
+					Button(action: {
+						locationViewModel.requestPermission()
+					}, label: {
+						ZStack{
+							Capsule()
+								.fill(Color("blackwhite"))
+								.frame(width: 120, height: 40)
+							HStack{
+								Image(systemName: "location.circle.fill")
+								Text("허용하기")
+								
+							}.foregroundColor(Color("scheme"))
+							
+						}
+					})
+					
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.7)))
+				} else {
+					
+				}
+				switch locationViewModel.authorizationStatus {
+				case .notDetermined:
+					Text("undet")
+					
+						.environmentObject(locationViewModel)
+				case .restricted:
+					Text("rest")
+						.onAppear{
+							locationAuth = false
+						}
+				case .denied:
+					Text("denied")
+						.onAppear{
+							locationAuth = false
+
+						}
+				case .authorizedAlways, .authorizedWhenInUse:
+					Text("authsuc")
+						.onAppear{
+							locationAuth = true
+
+						}
+							.environmentObject(locationViewModel)
+						default:
+							Text("Unexpected status")
+						}
 
 			}
 		}.onAppear {
@@ -182,6 +230,11 @@ struct greetingAndFeaturesView: View {
 //			goNext = false
 		}
 	}
+	
+
+
+
+
 }
 struct nonWonsinheungView: View{
     var body: some View{
