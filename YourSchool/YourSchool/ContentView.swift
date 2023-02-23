@@ -115,11 +115,11 @@ struct HomeView: View {
                 }
             }.onAppear(perform: {returnMealData()})
                 .navigationBarTitle("안녕하세요, \(userName)님")
-//                .navigationBarItems(trailing:
-//                                        Button("Reset"){
-//                    isFirstLaunching = true
-//                }
-//                )
+                .navigationBarItems(trailing:
+                                        Button("Reset"){
+                    isFirstLaunching = true
+                }
+                )
 
 //                .navigationTitle(ymdstr())
         }

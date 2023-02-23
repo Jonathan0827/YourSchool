@@ -145,7 +145,7 @@ struct nameSetupView: View {
 				Alert(title: Text("이름을 입력해주세요"), message: nil)
 			}
 			.fullScreenCover(isPresented: $goNext) {
-				greetingAndFeaturesView(isFirstLaunching: $isFirstLaunching, goNext: $goNext)
+				LocationPermissionReqView(isFirstLaunching: $isFirstLaunching, goNext: $goNext)
 			}
         }
         .navigationBarBackButtonHidden(true)
@@ -153,27 +153,34 @@ struct nameSetupView: View {
     }
 
 }
-struct greetingAndFeaturesView: View {
+struct LocationPermissionReqView: View {
 	@Binding var isFirstLaunching: Bool
 
 
 	@AppStorage("locationAuth") var locationAuth = false
+	@AppStorage("locationDenied") var locationDenied = false
+	@AppStorage("locationUndet") var locationUndet = false
+	@AppStorage("locationRest") var locationRest = false
+
 	@StateObject var locationViewModel = LocationViewModel()
 	@State var viewLoaded = false
 	@AppStorage("userName") var userName: String = ""
+	@State var viewFeatures = false
 	@Binding var goNext: Bool
 	var body: some View{
 		VStack{
 			if viewLoaded {
+				Spacer()
 					Text("👋🏻 안녕하세요, \(userName)님!")
 						.font(.title)
 						.fontWeight(.bold)
 						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1)))
 				if !locationAuth{
-					Text("위치 접근을 허용해주세요.")
+					Text("GPS 사용을 허용해주세요.")
 						.font(.title2)
 						.fontWeight(.bold)
-					
+						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))
+
 					Button(action: {
 						locationViewModel.requestPermission()
 					}, label: {
@@ -189,36 +196,91 @@ struct greetingAndFeaturesView: View {
 							
 						}
 					})
-					
 					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.7)))
-				} else {
-					
+					Spacer()
+
+				} else if locationAuth {
+					HStack{
+						Image(systemName: "checkmark.circle.fill")
+							.resizable()
+							.frame(width: 20, height: 20)
+							.foregroundColor(.green)
+						Text("이제 GPS를 사용할 수 있습니다.")
+							.fontWeight(.bold)
+					}
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))
+					Spacer()
+					Button(action: {
+						isFirstLaunching = false
+						goNext = false
+					}, label: {
+						ZStack{
+							RoundedRectangle(cornerRadius: 20)
+								.fill(.blue)
+								.frame(width: 300, height: 70)
+							HStack{
+								Text("완료")
+									.font(.title3)
+									.fontWeight(.semibold)
+							}.foregroundColor(Color("scheme"))
+							
+						}
+					})
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.7)))
+
+				} else if locationDenied {
+					HStack{
+						Image(systemName: "xmark.circle.fill")
+							.resizable()
+							.frame(width: 20, height: 20)
+							.foregroundColor(.red)
+						Text("GPS를 사용이 거부되었습니다.")
+							.fontWeight(.bold)
+					}
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))
+					Spacer()
+
+				} else if locationRest {
+					HStack{
+						Image(systemName: "xmark.circle.fill")
+							.resizable()
+							.frame(width: 20, height: 20)
+							.foregroundColor(.red)
+						Text("이 기기에서는 GPS를 사용할 수 없습니다.")
+							.fontWeight(.bold)
+					}
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))
+					Spacer()
+
 				}
 				switch locationViewModel.authorizationStatus {
 				case .notDetermined:
-					Text("undet")
-					
-						.environmentObject(locationViewModel)
-				case .restricted:
-					Text("rest")
+					Text("")
 						.onAppear{
+							locationUndet = false
+						}
+						
+				case .restricted:
+					Text("")
+						.onAppear{
+							locationRest = true
 							locationAuth = false
 						}
 				case .denied:
-					Text("denied")
+					Text("")
 						.onAppear{
 							locationAuth = false
-
+							locationDenied = true
 						}
 				case .authorizedAlways, .authorizedWhenInUse:
-					Text("authsuc")
+					Text("")
 						.onAppear{
 							locationAuth = true
 
 						}
-							.environmentObject(locationViewModel)
+							
 						default:
-							Text("Unexpected status")
+							ProgressView()
 						}
 
 			}
@@ -230,11 +292,13 @@ struct greetingAndFeaturesView: View {
 //			goNext = false
 		}
 	}
-	
-
-
-
-
+}
+struct FeaturesView: View{
+	var body: some View{
+		VStack{
+			
+		}
+	}
 }
 struct nonWonsinheungView: View{
     var body: some View{
