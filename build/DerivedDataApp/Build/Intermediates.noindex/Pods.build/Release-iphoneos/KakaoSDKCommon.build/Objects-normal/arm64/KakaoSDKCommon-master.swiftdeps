@@ -1,0 +1,35 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "88e9b63675ae3e6437f24c52cf23cb961c169bf1562f74e992683c2d475ccfbb"
+build_start_time: [1677158808, 949966907]
+build_end_time: [1677158808, 964848995]
+inputs:
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/KakaoSDKCommon.swift": !dirty [1676555340, 513592243]
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/Common.swift": !dirty [1676555340, 513729810]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/Properties.swift"
+  : !dirty [1676555340, 513950347]
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/SdkCoder.swift": !dirty [1676555340, 514072895]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/SdkCrypto.swift"
+  : !dirty [1676555340, 514209270]
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/SdkError.swift": !dirty [1676555340, 514355182]
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/SdkLog.swift": !dirty [1676555340, 514483451]
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/SdkUtils.swift": !dirty [1676555340, 514612674]
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/common/Urls.swift": !dirty [1676555340, 514766216]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/Array+Utils.swift"
+  : !dirty [1676555340, 514889478]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/Data+Utils.swift"
+  : !dirty [1676555340, 515011072]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/Date+Utils.swift"
+  : !dirty [1676555340, 515203475]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/DecodingContainer+AnyCollection.swift"
+  : !dirty [1676555340, 515416145]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/Dictionary+Utils.swift"
+  : !dirty [1676555340, 515769243]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/EncodingContainer+AnyCollection.swift"
+  : !dirty [1676555340, 515885829]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/UIApplication+Utils.swift"
+  : !dirty [1676555340, 515995025]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/URL+Utils.swift"
+  : !dirty [1676555340, 516106605]
+  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/model/AuthErrorInfo.swift"
+  : !dirty [1676555340, 516213655]
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/model/ErrorInfo.swift": !dirty [1676555340, 516318798]

@@ -13,6 +13,7 @@ struct goingToSchoolView: View {
         NavigationView{
             VStack{
                 MapView(coordinate: CLLocationCoordinate2D(latitude: 36.333065000000005, longitude: 127.34531979051518))
+                
                     .cornerRadius(20)
                     .padding(.horizontal)
                     .frame(height:300)
@@ -50,7 +51,7 @@ struct MapView: View {
     var coordinate: CLLocationCoordinate2D
     @State private var region = MKCoordinateRegion()
     var body: some View{
-        Map(coordinateRegion: $region)
+        Map(coordinateRegion: $region, interactionModes: [])
             .onAppear {
                 setRegion(coordinate)
             }

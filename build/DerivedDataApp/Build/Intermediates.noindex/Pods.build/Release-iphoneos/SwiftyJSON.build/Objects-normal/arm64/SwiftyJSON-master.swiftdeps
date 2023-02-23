@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "90639673cc84e4769d3c9e283fe55ce0bc4cb2b41ce602c959d2804c73807ce3"
+build_start_time: [1677158808, 945033073]
+build_end_time: [1677158808, 959195137]
+inputs:
+  "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/SwiftyJSON/Source/SwiftyJSON/SwiftyJSON.swift": !dirty [1674553503, 704048871]

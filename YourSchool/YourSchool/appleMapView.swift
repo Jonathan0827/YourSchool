@@ -23,7 +23,6 @@ struct AppleMapView: View {
             let h = geo.size.height
             VStack {
                 NavMapView(directions: $directions)
-                    .edgesIgnoringSafeArea(.top)
                     .frame(height: h/1.5)
                 
                 VStack{

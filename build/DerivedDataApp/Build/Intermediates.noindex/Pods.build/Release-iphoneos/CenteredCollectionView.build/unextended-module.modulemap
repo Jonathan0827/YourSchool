@@ -1,0 +1,10 @@
+framework module CenteredCollectionView {
+  umbrella header "CenteredCollectionView-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module CenteredCollectionView.__Swift {
+  exclude header "CenteredCollectionView-Swift.h"
+}

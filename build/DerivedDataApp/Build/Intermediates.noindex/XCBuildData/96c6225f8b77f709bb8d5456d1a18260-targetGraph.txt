@@ -1,0 +1,20 @@
+Target dependency graph (7 targets)
+Alamofire in Pods, no dependencies
+CenteredCollectionView in Pods, no dependencies
+KakaoSDKCommon in Pods, no dependencies
+KakaoSDKNavi in Pods, depends on:
+KakaoSDKCommon in Pods (explicit)
+SwiftyJSON in Pods, no dependencies
+Pods-YourSchool in Pods, depends on:
+Alamofire in Pods (explicit)
+CenteredCollectionView in Pods (explicit)
+KakaoSDKCommon in Pods (explicit)
+KakaoSDKNavi in Pods (explicit)
+SwiftyJSON in Pods (explicit)
+YourSchool in YourSchool, depends on:
+Pods-YourSchool in Pods (implicit dependency via file 'Pods_YourSchool.framework' in build phase 'Link Binary')
+Alamofire in Pods (implicit dependency via options '-framework Alamofire' in build setting 'OTHER_LDFLAGS')
+CenteredCollectionView in Pods (implicit dependency via options '-framework CenteredCollectionView' in build setting 'OTHER_LDFLAGS')
+KakaoSDKCommon in Pods (implicit dependency via options '-framework KakaoSDKCommon' in build setting 'OTHER_LDFLAGS')
+KakaoSDKNavi in Pods (implicit dependency via options '-framework KakaoSDKNavi' in build setting 'OTHER_LDFLAGS')
+SwiftyJSON in Pods (implicit dependency via options '-framework SwiftyJSON' in build setting 'OTHER_LDFLAGS')

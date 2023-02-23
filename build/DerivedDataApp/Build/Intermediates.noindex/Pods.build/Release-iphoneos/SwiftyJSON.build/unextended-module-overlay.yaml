@@ -1,0 +1,14 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Products/Release-iphoneos/SwiftyJSON/SwiftyJSON.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/SwiftyJSON.build/unextended-module.modulemap",
+    }]
+  }]
+}
