@@ -83,71 +83,85 @@ struct OnboardingView: View {
 }
 struct nameSetupView: View {
 	@Binding var isFirstLaunching: Bool
+	@State var viewLoaded = false
 	@State var ViewSetup = false
-	@State var nameOp = 100.0
 	@State var ViewGreeting = false
+	@State var tempUserName = ""
     @AppStorage("userName") var userName: String = ""
 	@State var enterNameWarning = false
 	@State var goNext = false
     var body: some View{
 		NavigationView{
-					VStack{
-						Text("이름을 입력해주세요.")
-							.font(.title)
-							.fontWeight(.bold)
-						HStack{
-							TextField("이름을 입력해주세요", text: $userName)
-								.padding(.leading, 20)
-								.textFieldStyle(.roundedBorder)
-								.onSubmit {
-									if userName.isEmpty {
-										enterNameWarning.toggle()
-									} else {
-										withAnimation(.easeIn(duration: 1)){
-											nameOp -= 1
-										}
+			if viewLoaded{
+				VStack{
+					Text("이름을 입력해주세요.")
+						.font(.title)
+						.fontWeight(.bold)
+					HStack{
+						TextField("이름을 입력해주세요", text: $tempUserName)
+							.padding(.leading, 20)
+							.textFieldStyle(.roundedBorder)
+							.onSubmit {
+								if tempUserName.isEmpty {
+									enterNameWarning.toggle()
+								} else {
+									withAnimation{
+										viewLoaded.toggle()
+										userName = tempUserName
 										goNext.toggle()
 									}
 								}
-								.submitLabel(.done)
-							if userName.isEmpty {
-								Button(action: {
-									
-									goNext.toggle()
-								}, label: {
-									Image(systemName: "arrow.forward.square.fill")
-										.resizable()
-										.frame(width: 35, height: 35)
-								})
-								.padding(.trailing, 20)
-								.disabled(true)
-							} else {
-								Button(action: {
-									withAnimation(.easeIn(duration: 4.0)){
-										nameOp -= 1
-										goNext.toggle()
-									}
-
-								}, label: {
-									Image(systemName: "arrow.forward.square.fill")
-										.resizable()
-										.frame(width: 35, height: 35)
-										.foregroundColor(.primary)
-								})
-								.padding(.trailing, 20)
-								.disabled(userName.isEmpty)
 							}
-							
+							.submitLabel(.done)
+						if tempUserName.isEmpty {
+							Button(action: {
+							}, label: {
+								Image(systemName: "arrow.forward.square.fill")
+									.resizable()
+									.frame(width: 35, height: 35)
+							})
+							.padding(.trailing, 20)
+							.disabled(true)
+						} else {
+							Button(action: {
+								withAnimation{
+									viewLoaded.toggle()
+									userName = tempUserName
+									goNext.toggle()
+								}
+							}, label: {
+								Image(systemName: "arrow.forward.square.fill")
+									.resizable()
+									.frame(width: 35, height: 35)
+									.foregroundColor(.primary)
+							})
+							.padding(.trailing, 20)
+							.disabled(tempUserName.isEmpty)
 						}
+						
 					}
+				}
+				.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1)))
 
-			.alert(isPresented: $enterNameWarning) {
-				Alert(title: Text("이름을 입력해주세요"), message: nil)
+				
+				.alert(isPresented: $enterNameWarning) {
+					Alert(title: Text("이름을 입력해주세요"), message: nil)
+				}
+
 			}
-			.fullScreenCover(isPresented: $goNext) {
-				LocationPermissionReqView(isFirstLaunching: $isFirstLaunching, goNext: $goNext)
-			}
+			
         }
+		.fullScreenCover(isPresented: $goNext) {
+			LocationPermissionReqView(isFirstLaunching: $isFirstLaunching, goNext: $goNext)
+		}
+		.onAppear{
+			withAnimation{
+				
+					viewLoaded = true
+				
+			}
+			userName = ""
+		}
         .navigationBarBackButtonHidden(true)
 
     }
@@ -161,7 +175,7 @@ struct LocationPermissionReqView: View {
 	@AppStorage("locationDenied") var locationDenied = false
 	@AppStorage("locationUndet") var locationUndet = false
 	@AppStorage("locationRest") var locationRest = false
-
+	
 	@StateObject var locationViewModel = LocationViewModel()
 	@State var viewLoaded = false
 	@AppStorage("userName") var userName: String = ""
@@ -175,7 +189,7 @@ struct LocationPermissionReqView: View {
 						.font(.title)
 						.fontWeight(.bold)
 						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1)))
-				if !locationAuth{
+				if locationUndet{
 					Text("GPS 사용을 허용해주세요.")
 						.font(.title2)
 						.fontWeight(.bold)
@@ -208,7 +222,7 @@ struct LocationPermissionReqView: View {
 						Text("이제 GPS를 사용할 수 있습니다.")
 							.fontWeight(.bold)
 					}
-					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.4)))
 					Spacer()
 					Button(action: {
 						isFirstLaunching = false
@@ -228,6 +242,7 @@ struct LocationPermissionReqView: View {
 					})
 					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.7)))
 
+
 				} else if locationDenied {
 					HStack{
 						Image(systemName: "xmark.circle.fill")
@@ -238,6 +253,9 @@ struct LocationPermissionReqView: View {
 							.fontWeight(.bold)
 					}
 					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))
+					Text("설정을 완료할 수 있지만 길찾기를 사용할 수 없습니다.")
+						.font(.caption2)
+						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.5)))
 					Spacer()
 
 				} else if locationRest {
@@ -250,6 +268,9 @@ struct LocationPermissionReqView: View {
 							.fontWeight(.bold)
 					}
 					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))
+					Text("설정을 완료할 수 있지만 길찾기를 사용할 수 없습니다.")
+						.font(.caption2)
+						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.5)))
 					Spacer()
 
 				}
@@ -257,24 +278,32 @@ struct LocationPermissionReqView: View {
 				case .notDetermined:
 					Text("")
 						.onAppear{
-							locationUndet = false
+							print("undet")
+							locationUndet = true
 						}
 						
 				case .restricted:
 					Text("")
 						.onAppear{
+							print("rest")
+							locationUndet = false
 							locationRest = true
 							locationAuth = false
 						}
 				case .denied:
 					Text("")
 						.onAppear{
+							print("deny")
+							locationUndet = false
 							locationAuth = false
 							locationDenied = true
 						}
 				case .authorizedAlways, .authorizedWhenInUse:
 					Text("")
 						.onAppear{
+							print("auth")
+							locationUndet = false
+
 							locationAuth = true
 
 						}
@@ -285,8 +314,11 @@ struct LocationPermissionReqView: View {
 
 			}
 		}.onAppear {
+			locationAuth = false
+			locationDenied = false
 			viewLoaded = true
-//			sleep(5)
+			locationUndet = false
+			locationRest = false
 //
 //			isFirstLaunching = false
 //			goNext = false
@@ -312,11 +344,14 @@ struct nonWonsinheungView: View{
                     .font(.title)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
+					.onAppear{
+						sleep(5)
+						print("exit")
+					}
 
             }
         }
         .navigationBarBackButtonHidden(true)
-
     }
 }
 //struct OnboardingTabView_Previews: PreviewProvider {

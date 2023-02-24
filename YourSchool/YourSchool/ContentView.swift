@@ -118,6 +118,7 @@ struct HomeView: View {
                 .navigationBarItems(trailing:
                                         Button("Reset"){
                     isFirstLaunching = true
+                    userName = ""
                 }
                 )
 

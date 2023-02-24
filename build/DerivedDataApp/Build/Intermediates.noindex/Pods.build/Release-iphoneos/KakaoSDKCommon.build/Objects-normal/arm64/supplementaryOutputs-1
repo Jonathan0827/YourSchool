@@ -1,8 +1,0 @@
-"/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/KakaoSDKCommon/sources/KakaoSDKCommon/common/extension/Array+Utils.swift":
-  dependencies: "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/KakaoSDKCommon.build/Objects-normal/arm64/KakaoSDKCommon-master.d"
-  swiftmodule: "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/KakaoSDKCommon.build/Objects-normal/arm64/KakaoSDKCommon.swiftmodule"
-  diagnostics: "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/KakaoSDKCommon.build/Objects-normal/arm64/KakaoSDKCommon-master.dia"
-  abi-baseline-json: "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/KakaoSDKCommon.build/Objects-normal/arm64/KakaoSDKCommon.abi.json"
-  swiftsourceinfo: "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/KakaoSDKCommon.build/Objects-normal/arm64/KakaoSDKCommon.swiftsourceinfo"
-  objc-header: "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/KakaoSDKCommon.build/Objects-normal/arm64/KakaoSDKCommon-Swift.h"
-  swiftdoc: "/Users/jonathanlim/desktop/coding/Your School/build/DerivedDataApp/Build/Intermediates.noindex/Pods.build/Release-iphoneos/KakaoSDKCommon.build/Objects-normal/arm64/KakaoSDKCommon.swiftdoc"

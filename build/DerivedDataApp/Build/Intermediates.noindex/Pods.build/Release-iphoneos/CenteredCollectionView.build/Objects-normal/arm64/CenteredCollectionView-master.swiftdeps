@@ -1,7 +1,0 @@
-version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
-options: "c15464176f0d2598f22904b80e33d5ffc4f195cb957cc60f9f5fc9f47668bf08"
-build_start_time: [1677158808, 942411899]
-build_end_time: [1677158808, 956265926]
-inputs:
-  ? "/Users/jonathanlim/Desktop/coding/Your School/YourSchool/Pods/CenteredCollectionView/CenteredCollectionView/Classes/CenteredCollectionViewFlowLayout.swift"
-  : !dirty [1674651454, 202376127]
