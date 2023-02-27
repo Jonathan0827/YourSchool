@@ -16,16 +16,19 @@ struct pin: Identifiable {
 struct AppleMapView: View {
     @State private var directions: [String] = []
     @State private var showDirections = false
+    @State var time: DateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: Date())
     @State var selection = 0
+    @State var eta: Int = 0
     var body: some View{
         GeometryReader { geo in
             let w = geo.size.width
             let h = geo.size.height
             VStack {
-                NavMapView(directions: $directions)
+                NavMapView(eta: $eta, directions: $directions)
                     .frame(height: h/1.5)
-                
+                    
                 VStack{
+                    Text("\(getETA())")
                     Text("경로")
                         .font(.largeTitle)
                         .bold()
@@ -45,6 +48,7 @@ struct AppleMapView: View {
             
         }.onAppear{
             showDirectionsAuto()
+            time = getTime()
         }
         
         
@@ -55,20 +59,49 @@ struct AppleMapView: View {
             showDirections.toggle()
         }
     }
-    
+
+    func secToHMS(seconds: Int) -> [Int] {
+        return [seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60]
+    }
+
+    func getTime() -> DateComponents{
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute, .second], from: date)
+        return components
+    }
+    func getETA() -> String{
+        var amOrPm = "오전"
+        var eh = (time.hour)!+secToHMS(seconds: eta)[0]
+        var em = (time.minute)!+secToHMS(seconds: eta)[1]
+        var es = (time.second)!+secToHMS(seconds: eta)[2]
+        if es > 60 {
+            es = es - 60
+            em = em + 1
+        }
+        if em > 60 {
+            em = em - 60
+            eh = eh + 1
+        }
+        if eh > 12 {
+            eh = eh - 12
+            amOrPm = "오후"
+        }
+        
+        return "예상 도착시간: \(amOrPm) \(eh)시 \(em)분 \(es)초"
+    }
 }
 struct NavMapView: UIViewRepresentable {
     typealias UIViewType = MKMapView
-
+    
     let locationManager = CLLocationManager()
-
+    @Binding var eta: Int
     @Binding var directions: [String]
     func makeCoordinator() -> MapViewCoordinator {
         return MapViewCoordinator()
     }
     func makeUIView(context: Context) -> MKMapView {
-        var annotationView = MKAnnotationView()
-
+        
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
         let crntLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: getUserLocaation()[0], longitude: getUserLocaation()[1]), span: MKCoordinateSpan())
@@ -81,7 +114,7 @@ struct NavMapView: UIViewRepresentable {
         request.source = MKMapItem(placemark: crntLocationPM)
         request.destination = MKMapItem(placemark: schoolPM)
         request.transportType = .walking
-
+        
         let directions = MKDirections(request: request)
         directions.calculate { response, error in
           guard let route = response?.routes.first else { return }
@@ -93,20 +126,49 @@ struct NavMapView: UIViewRepresentable {
             mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), animated: true)
             self.directions = route.steps.map { $0.instructions }.filter{ !$0.isEmpty }
             for route in response!.routes {
-                let eta = route.expectedTravelTime
-                print(eta)
+                eta = Int(route.expectedTravelTime)
+                print("eta is")
+                print("\(eta/60) min")
             }
         }
-     return mapView
+        return mapView
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
     }
+    
     func getUserLocaation() -> [Double]{
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         var userCoordinates = locationManager.location?.coordinate
         return [userCoordinates!.latitude, userCoordinates!.longitude]
+    }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Get current position
+        let sourcePlacemark = MKPlacemark(coordinate: locations.last!.coordinate, addressDictionary: nil)
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+
+        // Get destination position
+        let lat1: NSString = "36.333065000000005"
+        let lng1: NSString = "127.34531979051518"
+        let destinationCoordinates = CLLocationCoordinate2DMake(lat1.doubleValue, lng1.doubleValue)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinates, addressDictionary: nil)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+
+        // Create request
+        let request = MKDirections.Request()
+        request.source = sourceMapItem
+        request.destination = destinationMapItem
+        request.transportType = MKDirectionsTransportType.walking
+        request.requestsAlternateRoutes = false
+        let directions = MKDirections(request: request)
+        directions.calculate { response, error in
+            if let route = response?.routes.first {
+                print("Distance: \(route.distance), ETA: \(route.expectedTravelTime)")
+            } else {
+                print("Error!")
+            }
+        }
     }
     class MapViewCoordinator: NSObject, MKMapViewDelegate {
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -117,6 +179,7 @@ struct NavMapView: UIViewRepresentable {
         }
     }
 }
+
 class MapPin: NSObject, MKAnnotation {
     let title: String?
     let locationName: String

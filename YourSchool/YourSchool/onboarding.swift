@@ -257,6 +257,23 @@ struct LocationPermissionReqView: View {
 						.font(.caption2)
 						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.5)))
 					Spacer()
+					Button(action: {
+						isFirstLaunching = false
+						goNext = false
+					}, label: {
+						ZStack{
+							RoundedRectangle(cornerRadius: 20)
+								.fill(.blue)
+								.frame(width: 300, height: 70)
+							HStack{
+								Text("완료")
+									.font(.title3)
+									.fontWeight(.semibold)
+							}.foregroundColor(Color("scheme"))
+							
+						}
+					})
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.7)))
 
 				} else if locationRest {
 					HStack{
@@ -272,6 +289,23 @@ struct LocationPermissionReqView: View {
 						.font(.caption2)
 						.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.5)))
 					Spacer()
+					Button(action: {
+						isFirstLaunching = false
+						goNext = false
+					}, label: {
+						ZStack{
+							RoundedRectangle(cornerRadius: 20)
+								.fill(.blue)
+								.frame(width: 300, height: 70)
+							HStack{
+								Text("완료")
+									.font(.title3)
+									.fontWeight(.semibold)
+							}.foregroundColor(Color("scheme"))
+							
+						}
+					})
+					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.7)))
 
 				}
 				switch locationViewModel.authorizationStatus {
