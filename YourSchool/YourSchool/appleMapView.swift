@@ -15,7 +15,8 @@ struct pin: Identifiable {
 }
 struct AppleMapView: View {
     @State private var directions: [String] = []
-    @State private var showDirections = false
+    @State var showDirections = false
+    @State var showDirectionsInfo = false
     @State var time: DateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: Date())
     @State var selection = 0
     @State var eta: Int = 0
@@ -25,30 +26,39 @@ struct AppleMapView: View {
             let h = geo.size.height
             VStack {
                 NavMapView(eta: $eta, directions: $directions)
-                    .frame(height: h/1.5)
-                    
+                    .edgesIgnoringSafeArea(.top)
                 VStack{
                     Text("\(getETA())")
+                        .font(.title3)
+                        .padding()
                     Text("경로")
                         .font(.largeTitle)
                         .bold()
+                        .padding(.top)
+                        .padding(.bottom, -50)
                     TabView{
                         ForEach(0..<self.directions.count, id: \.self) { i in
-                            Text(self.directions[i])
-                                .padding()
-                                .foregroundColor(Color("scheme"))
-                                .background(.primary)
-                                .cornerRadius(20)
+                            Button(action: {showDirectionsInfo.toggle()}, label: {
+                                Text(self.directions[i])
+                                    .padding()
+                                    .foregroundColor(Color("scheme"))
+                                    .background(Color("blackwhite"))
+                                    .cornerRadius(20)
+                            })
+                            
                         }
                     }.tabViewStyle(PageTabViewStyle())
                         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                        .padding(.top, -90)
+//                        .padding(.top, -90)
                 }
             }
             
         }.onAppear{
             showDirectionsAuto()
             time = getTime()
+        }
+        .sheet(isPresented: $showDirectionsInfo){
+            DestinationInfoView(showDirectionsInfo: $showDirectionsInfo)
         }
         
         
@@ -88,8 +98,80 @@ struct AppleMapView: View {
             amOrPm = "오후"
         }
         
-        return "예상 도착시간: \(amOrPm) \(eh)시 \(em)분 \(es)초"
+        return "예상 도착시간: \(amOrPm) \(eh)시 \(em)분"
     }
+}
+struct DestinationInfoView: View {
+    @State private var directions: [String] = []
+    @State var showDirections = false
+    @State var eta: Int = 0
+    @Binding var showDirectionsInfo: Bool
+    var body: some View{
+        VStack{
+            Text("경로")
+                .foregroundColor(.white)
+                .font(.largeTitle)
+                .bold()
+                .padding(.top)
+            
+            ScrollView{
+                VStack {
+                    NavMapView(eta: $eta, directions: $directions)
+                        .hidden()
+                    
+                    
+                    
+                    ForEach(0..<self.directions.count, id: \.self) { i in
+                        Text(self.directions[i])
+                            .fontWeight(.bold)
+                            .padding()
+                            .foregroundColor(.white)
+                            .cornerRadius(20)
+                            .font(.title)
+                        
+                        Divider()
+                            .background(.gray)
+                        
+                        
+                    }
+                    
+                    
+                    
+                }.onAppear{
+                    showDirectionsAuto()
+                }
+            }
+            Button(action: {
+                showDirectionsInfo.toggle()
+            }, label: {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.blue)
+                        .frame(width: 300, height: 70)
+                    HStack{
+                        Text("완료")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                    }.foregroundColor(Color("scheme"))
+                    
+                }
+                
+                .shadow(color: .black, radius: 10)
+//                .ignoresSafeArea()
+
+            })
+                            .padding(.top, -100)
+
+        }.background(.black)
+            .ignoresSafeArea()
+    }
+    
+    func showDirectionsAuto() {
+        if directions.isEmpty{
+            showDirections.toggle()
+        }
+    }
+
 }
 struct NavMapView: UIViewRepresentable {
     typealias UIViewType = MKMapView
