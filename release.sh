@@ -3,6 +3,7 @@ set -e
 ./build.sh
 git add ./build/YourSchool.ipa
 git commit -m "rebuild"
+git push
 gh release create v"$1" "./build/YourSchool.ipa#" -t "$2" -n "$3" --latest
 rm YourSchool.json
 touch YourSchool.json
