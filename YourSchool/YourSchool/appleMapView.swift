@@ -115,7 +115,7 @@ struct DestinationInfoView: View {
                 .padding(.top)
             
             ScrollView{
-                VStack {
+                VStack(alignment: .leading){
                     NavMapView(eta: $eta, directions: $directions)
                         .hidden()
                     
@@ -149,7 +149,7 @@ struct DestinationInfoView: View {
                         .fill(.blue)
                         .frame(width: 300, height: 70)
                     HStack{
-                        Text("완료")
+                        Text("확인")
                             .font(.title3)
                             .fontWeight(.semibold)
                     }.foregroundColor(Color("scheme"))
