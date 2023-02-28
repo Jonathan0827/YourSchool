@@ -125,6 +125,7 @@ struct DestinationInfoView: View {
                         Text(self.directions[i])
                             .fontWeight(.bold)
                             .padding()
+                            .padding(.vertical, 20)
                             .foregroundColor(.white)
                             .cornerRadius(20)
                             .font(.title)
@@ -141,27 +142,31 @@ struct DestinationInfoView: View {
                     showDirectionsAuto()
                 }
             }
-            Button(action: {
-                showDirectionsInfo.toggle()
-            }, label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.blue)
-                        .frame(width: 300, height: 70)
-                    HStack{
-                        Text("확인")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                    }.foregroundColor(Color("scheme"))
+            ZStack{
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.black)
+                    .frame(width: 100000, height: 80)
+                Button(action: {
+                    showDirectionsInfo.toggle()
+                }, label: {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.blue)
+                            .frame(width: 300, height: 70)
+                        HStack{
+                            Text("확인")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                        }.foregroundColor(Color("scheme"))
+                        
+                    }
                     
-                }
-                
-                .shadow(color: .black, radius: 10)
-//                .ignoresSafeArea()
-
-            })
-                            .padding(.top, -100)
-
+                    .shadow(color: .black, radius: 10)
+                    //                .ignoresSafeArea()
+                    
+                })
+                .padding(.top, -100)
+            }
         }.background(.black)
             .ignoresSafeArea()
     }
