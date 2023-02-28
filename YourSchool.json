@@ -10,7 +10,7 @@
         "down": "https://jonathan.kro.kr/YourSchool/build/YourSchool.ipa",
         "description": "Unofficial app for Wonsinheung Middle School.",
         "bundleID": "com.junehyeop.YourSchool",
-        "category": "Alpha",
+        "category": "App",
         "changelog": "- Improve UI"
     }]
 }
