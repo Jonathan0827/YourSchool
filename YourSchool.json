@@ -5,12 +5,12 @@
     },
     "App": [{
         "name": "YourSchool",
-        "version": "2.1",
+        "version": ""${1}"",
         "icon": "https://jonathan.kro.kr/YourSchool/icon.png",
         "down": "https://jonathan.kro.kr/YourSchool/build/YourSchool.ipa",
         "description": "Unofficial app for Wonsinheung Middle School.",
         "bundleID": "com.junehyeop.YourSchool",
         "category": "App",
-        "changelog": "- Improve UI"
+        "changelog": "- "${3}""
     }]
 }
