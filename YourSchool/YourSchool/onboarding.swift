@@ -6,84 +6,112 @@ import CoreLocationUI
 struct OnboardingView: View {
 	@Binding var isFirstLaunching: Bool
     @State var warnWonsinheung = false
-    var body: some View{
+	@State var viewLoaded = false
+	var body: some View{
         NavigationView{
             ZStack(alignment: .center){
-                VStack{
-                    Image(systemName: "graduationcap.fill")
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                    Text("Your School")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    Button(action: {
-                        withAnimation{
-                            warnWonsinheung.toggle()
-                        }
-                    }, label: {ZStack{
-                        Capsule()
-                            .fill(Color("blackwhite"))
-                            .frame(width: 150, height: 60)
-                        HStack{
-                            Text("시작하기")
-                            Image(systemName: "arrow.forward.circle.fill")
-                        }.foregroundColor(Color("scheme"))
-                        
-                    }})
-                }
-                if warnWonsinheung {
-                    //                    GeometryReader { geo in
-                    //                        let w = geo.size.width
-                    //                        let h = geo.size.height
-                    VStack(alignment: .center){
-                        Text("시작하기 전에\n확인해주세요")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
-                        NavigationLink(destination: nameSetupView(isFirstLaunching: $isFirstLaunching), label: {
-                            ZStack{
-                                Capsule()
-                                    .fill(Color("blackwhite"))
-                                    .frame(width: 300, height: 60)
-                                HStack{
-                                    Text("원신흥중학교 재학생입니다.")
-                                    Image(systemName: "arrow.forward.circle.fill")
-                                }.foregroundColor(Color("scheme"))
-                                
-                            }
-                        })
-                        NavigationLink(destination: nonWonsinheungView(), label: {
-                            ZStack{
-                                Capsule()
-                                    .fill(Color("blackwhite"))
-                                    .frame(width: 305, height: 65)
-                                Capsule()
-                                    .fill(Color("scheme"))
-                                    .frame(width: 300, height: 60)
-                                HStack{
-                                    Text("원신흥중학교 재학생이 아닙니다.")
-                                    Image(systemName: "arrow.forward.circle.fill")
-                                }.foregroundColor(.primary)
-                                
-                            }
-                        })
-                    }
-                    .frame(height: UIScreen.Height/1.5)
-                    .padding(20)
-                    .background(Color("scheme"))
-                    .cornerRadius(30)
-					.shadow(color: .primary, radius: 20)
-                    .zIndex(10)
-                    .transition(.move(edge: .bottom))
-                }
-                
-            }
+					VStack{
+						Image(systemName: "graduationcap.fill")
+							.resizable()
+							.frame(width: 200, height: 200)
+							.onAppear{
+								for family: String in UIFont.familyNames {
+									print(family)
+									for names : String in UIFont.fontNames(forFamilyName: family){
+										print("=== \(names)")
+									}
+								}
+							}
+						if viewLoaded{
+							Text("Your School")
+								.font(.largeTitle)
+								.fontWeight(.bold)
+								.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(0.5)))
+							
+							//					Text("⠼")
+							//						.font(.custom("AppleSymbols", size: 36))
+							Button(action: {
+								withAnimation{
+									warnWonsinheung.toggle()
+								}
+							}, label: {ZStack{
+								Capsule()
+									.fill(Color("blackwhite"))
+									.frame(width: 150, height: 60)
+								HStack{
+									Text("시작하기")
+									Image(systemName: "arrow.forward.circle.fill")
+								}.foregroundColor(Color("scheme"))
+								
+							}
+								
+							})
+							.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(0.8)))
+
+						}
+
+					}
+					if warnWonsinheung {
+						//                    GeometryReader { geo in
+						//                        let w = geo.size.width
+						//                        let h = geo.size.height
+						VStack(alignment: .center){
+							Text("시작하기 전에\n확인해주세요")
+								.font(.largeTitle)
+								.fontWeight(.bold)
+								.multilineTextAlignment(.center)
+							NavigationLink(destination: nameSetupView(isFirstLaunching: $isFirstLaunching), label: {
+								ZStack{
+									Capsule()
+										.fill(Color("blackwhite"))
+										.frame(width: 300, height: 60)
+									HStack{
+										Text("원신흥중학교 재학생입니다.")
+										Image(systemName: "arrow.forward.circle.fill")
+									}.foregroundColor(Color("scheme"))
+									
+								}
+							})
+							NavigationLink(destination: nonWonsinheungView(), label: {
+								ZStack{
+									Capsule()
+										.fill(Color("blackwhite"))
+										.frame(width: 305, height: 65)
+									Capsule()
+										.fill(Color("scheme"))
+										.frame(width: 300, height: 60)
+									HStack{
+										Text("원신흥중학교 재학생이 아닙니다.")
+										Image(systemName: "arrow.forward.circle.fill")
+									}.foregroundColor(.primary)
+									
+								}
+							})
+						}
+						.frame(height: UIScreen.Height/1.5)
+						.padding(20)
+						.background(Color("scheme"))
+						.cornerRadius(30)
+						.shadow(color: .primary, radius: 20)
+						.zIndex(10)
+						.transition(.move(edge: .bottom))
+					}
+			}
+			
+			.onAppear {
+					withAnimation{
+						viewLoaded.toggle()
+					}
+				
+			}
         }
     }
 }
 struct nameSetupView: View {
 	@Binding var isFirstLaunching: Bool
 	@State var viewLoaded = false
+	@State var secondViewLoaded = false
+
 	@State var ViewSetup = false
 	@State var ViewGreeting = false
 	@State var tempUserName = ""
@@ -92,15 +120,19 @@ struct nameSetupView: View {
 	@State var goNext = false
     var body: some View{
 		NavigationView{
-			if viewLoaded{
-				VStack{
+			VStack{
+				if viewLoaded{
 					Text("이름을 입력해주세요.")
 						.font(.title)
 						.fontWeight(.bold)
+					
+				}
+				if secondViewLoaded{
 					HStack{
 						TextField("이름을 입력해주세요", text: $tempUserName)
 							.padding(.leading, 20)
 							.textFieldStyle(.roundedBorder)
+						
 							.onSubmit {
 								if tempUserName.isEmpty {
 									enterNameWarning.toggle()
@@ -122,6 +154,8 @@ struct nameSetupView: View {
 							})
 							.padding(.trailing, 20)
 							.disabled(true)
+							
+							
 						} else {
 							Button(action: {
 								withAnimation{
@@ -137,31 +171,35 @@ struct nameSetupView: View {
 							})
 							.padding(.trailing, 20)
 							.disabled(tempUserName.isEmpty)
+							
+							
 						}
+						
 						
 					}
 				}
-				.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1)))
-
 				
-				.alert(isPresented: $enterNameWarning) {
-					Alert(title: Text("이름을 입력해주세요"), message: nil)
-				}
-
+				
+					
 			}
-			
-        }
+			.onAppear{
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+					withAnimation { viewLoaded.toggle() }
+				})
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+					withAnimation { secondViewLoaded.toggle() }
+				})
+				userName = ""
+			}
+		}
+		.alert(isPresented: $enterNameWarning) {
+			Alert(title: Text("이름을 입력해주세요"), message: nil)
+		}
+		
 		.fullScreenCover(isPresented: $goNext) {
 			LocationPermissionReqView(isFirstLaunching: $isFirstLaunching, goNext: $goNext)
 		}
-		.onAppear{
-			withAnimation{
-				
-					viewLoaded = true
-				
-			}
-			userName = ""
-		}
+		
         .navigationBarBackButtonHidden(true)
 
     }
