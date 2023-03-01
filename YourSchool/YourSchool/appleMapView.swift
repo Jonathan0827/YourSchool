@@ -58,7 +58,7 @@ struct AppleMapView: View {
             time = getTime()
         }
         .sheet(isPresented: $showDirectionsInfo){
-            DestinationInfoView(showDirectionsInfo: $showDirectionsInfo)
+            DestinationInfoView(directions: directions, showDirectionsInfo: $showDirectionsInfo)
         }
         
         
@@ -102,7 +102,7 @@ struct AppleMapView: View {
     }
 }
 struct DestinationInfoView: View {
-    @State private var directions: [String] = []
+    @State var directions: [String]
     @State var showDirections = false
     @State var eta: Int = 0
     @Binding var showDirectionsInfo: Bool
@@ -116,11 +116,6 @@ struct DestinationInfoView: View {
             
             ScrollView{
                 VStack(alignment: .leading){
-                    NavMapView(eta: $eta, directions: $directions)
-                        .hidden()
-                    
-                    
-                    
                     ForEach(0..<self.directions.count, id: \.self) { i in
                         Text(self.directions[i])
                             .fontWeight(.bold)
