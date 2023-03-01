@@ -10,7 +10,6 @@
 		910E19862982C12F004EBD04 /* appleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E19852982C12F004EBD04 /* appleMapView.swift */; };
 		910E19B12983F4E2004EBD04 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E19B02983F4E2004EBD04 /* tests.swift */; };
 		91215A2D29AF27E80012779C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91215A2C29AF27E80012779C /* Settings.swift */; };
-		91215A3029AF3CC80012779C /* AppleSymbols.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91215A2F29AF3CC70012779C /* AppleSymbols.ttf */; };
 		913E074F297FC43000782981 /* YourSchoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E074E297FC43000782981 /* YourSchoolApp.swift */; };
 		913E0751297FC43000782981 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E0750297FC43000782981 /* ContentView.swift */; };
 		913E0753297FC43100782981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913E0752297FC43100782981 /* Assets.xcassets */; };
@@ -74,7 +73,6 @@
 		910E19AA2983A44A004EBD04 /* TMapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TMapSDK.framework; sourceTree = "<group>"; };
 		910E19B02983F4E2004EBD04 /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		91215A2C29AF27E80012779C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		91215A2F29AF3CC70012779C /* AppleSymbols.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSymbols.ttf; sourceTree = "<group>"; };
 		913E074B297FC43000782981 /* YourSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		913E074E297FC43000782981 /* YourSchoolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSchoolApp.swift; sourceTree = "<group>"; };
 		913E0750297FC43000782981 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,14 +152,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		91215A2E29AF3C360012779C /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				91215A2F29AF3CC70012779C /* AppleSymbols.ttf */,
-			);
-			path = fonts;
-			sourceTree = "<group>";
-		};
 		913E0742297FC43000782981 = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +194,6 @@
 				91B3478329829C8700AAC9DF /* Map.swift */,
 				918E32942982B6FA00CAFCC6 /* Resources */,
 				913E0752297FC43100782981 /* Assets.xcassets */,
-				91215A2E29AF3C360012779C /* fonts */,
 				913E0754297FC43100782981 /* Preview Content */,
 			);
 			path = YourSchool;
@@ -364,7 +353,6 @@
 				913E0756297FC43100782981 /* Preview Assets.xcassets in Resources */,
 				91D1B5532985149E00C32064 /* CLLocationSimLoc.gpx in Resources */,
 				918E328E2982B4FD00CAFCC6 /* schoolData.json in Resources */,
-				91215A3029AF3CC80012779C /* AppleSymbols.ttf in Resources */,
 				913E0753297FC43100782981 /* Assets.xcassets in Resources */,
 				91B34782298299E500AAC9DF /* Launch.storyboard in Resources */,
 			);
