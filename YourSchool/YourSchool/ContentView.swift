@@ -7,10 +7,12 @@
 //edu office code: G10
 //School code: 7451342
 //meal api link sample: https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&ATPT_OFCDC_SC_CODE=G10&SD_SCHUL_CODE=7451342&MLSV_YMD=20230303
+//time table api sample: https://open.neis.go.kr/hub/misTimetable?ATPT_OFCDC_SC_CODE=G10&SD_SCHUL_CODE=7451342&TI_FROM_YMD=20230302&TI_TO_YMD=20230303
 import SwiftUI
 import Alamofire
 import CenteredCollectionView
-
+import Foundation
+import WebKit
 extension Date {
     var Tomorrow: Date {
         return Calendar.current.date(byAdding: .day, value: 1, to: self)!
@@ -34,7 +36,14 @@ struct ContentView: View {
         }.fullScreenCover(isPresented: $isFirstLaunching) {
             OnboardingView(isFirstLaunching: $isFirstLaunching)
         }
+        .onAppear{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "mm"
+            print(Date().startOfWeek)
+            print(Date().endOfWeek)
+        }
     }
+    
     
 }
 struct HomeView: View {
@@ -45,7 +54,7 @@ struct HomeView: View {
     @State var mealDayAfterTomorrow = "Fetching"
     @State var mealYesterday = "Fetching"
     @State var mealSelection = 1
-
+    @State var goReset = false
 //    let date = Date()
     let session: URLSession = URLSession.shared
 
@@ -112,14 +121,16 @@ struct HomeView: View {
                         .tabViewStyle(PageTabViewStyle())
                         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     })
+                    NavigationLink(destination: SettingsView(isFirstLaunching: $isFirstLaunching, userName: $userName, goReset: $goReset), isActive: $goReset, label: {})
                 }
             }.onAppear(perform: {returnMealData()})
                 .navigationBarTitle("안녕하세요, \(userName)님")
                 .navigationBarItems(trailing:
-                                        Button("Reset"){
-                    isFirstLaunching = true
-                    userName = ""
-                }
+                                        Button(action: {goReset = true}, label: {
+                    Image(systemName: "gear.circle.fill")
+                        .foregroundColor(Color("blackwhite"))
+                })
+                    
                 )
 
 //                .navigationTitle(ymdstr())
@@ -250,3 +261,17 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+extension Date {
+    var startOfWeek: Date? {
+        let gregorian = Calendar(identifier: .gregorian)
+        guard let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else { return nil }
+        return gregorian.date(byAdding: .day, value: 2, to: sunday)
+    }
+    
+    var endOfWeek: Date? {
+        let gregorian = Calendar(identifier: .gregorian)
+        guard let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else { return nil }
+        return gregorian.date(byAdding: .day, value: 6, to: sunday)
+    }
+}
+

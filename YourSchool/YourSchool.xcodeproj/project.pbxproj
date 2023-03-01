@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		910E19862982C12F004EBD04 /* appleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E19852982C12F004EBD04 /* appleMapView.swift */; };
 		910E19B12983F4E2004EBD04 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E19B02983F4E2004EBD04 /* tests.swift */; };
+		91215A2D29AF27E80012779C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91215A2C29AF27E80012779C /* Settings.swift */; };
 		913E074F297FC43000782981 /* YourSchoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E074E297FC43000782981 /* YourSchoolApp.swift */; };
 		913E0751297FC43000782981 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E0750297FC43000782981 /* ContentView.swift */; };
 		913E0753297FC43100782981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913E0752297FC43100782981 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		910E19852982C12F004EBD04 /* appleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appleMapView.swift; sourceTree = "<group>"; };
 		910E19AA2983A44A004EBD04 /* TMapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TMapSDK.framework; sourceTree = "<group>"; };
 		910E19B02983F4E2004EBD04 /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
+		91215A2C29AF27E80012779C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		913E074B297FC43000782981 /* YourSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		913E074E297FC43000782981 /* YourSchoolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSchoolApp.swift; sourceTree = "<group>"; };
 		913E0750297FC43000782981 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				91B34781298299E500AAC9DF /* Launch.storyboard */,
 				913E074E297FC43000782981 /* YourSchoolApp.swift */,
 				913E0750297FC43000782981 /* ContentView.swift */,
+				91215A2C29AF27E80012779C /* Settings.swift */,
 				91FA0AEB2990AB480045AE3E /* onboarding.swift */,
 				910E19B02983F4E2004EBD04 /* tests.swift */,
 				91D1B54E2985045700C32064 /* LocationManager.swift */,
@@ -481,6 +484,7 @@
 			files = (
 				91D1B54D2984F08B00C32064 /* DLS.swift in Sources */,
 				91B347802982364600AAC9DF /* meal.swift in Sources */,
+				91215A2D29AF27E80012779C /* Settings.swift in Sources */,
 				913E0751297FC43000782981 /* ContentView.swift in Sources */,
 				91D1B54F2985045700C32064 /* LocationManager.swift in Sources */,
 				9154DB61298223C3009A4C7E /* date.swift in Sources */,
@@ -669,7 +673,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.1;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.junehyeop.YourSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -709,7 +713,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.1;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.junehyeop.YourSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
