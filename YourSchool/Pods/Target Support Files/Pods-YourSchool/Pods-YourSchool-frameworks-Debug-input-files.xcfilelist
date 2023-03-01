@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-YourSchool/Pods-YourSchool-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework
-${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework
-${BUILT_PRODUCTS_DIR}/KakaoSDKNavi/KakaoSDKNavi.framework
+${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

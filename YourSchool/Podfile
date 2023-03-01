@@ -8,8 +8,8 @@ target 'YourSchool' do
   # Pods for YourSchool
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'KakaoSDKNavi'
-pod "CenteredCollectionView"
+  pod 'SwiftSoup'
+  pod "CenteredCollectionView"
   target 'YourSchoolTests' do
     inherit! :search_paths
     # Pods for testing
