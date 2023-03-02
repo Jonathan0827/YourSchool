@@ -49,12 +49,14 @@ struct ContentView: View {
 struct HomeView: View {
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     @AppStorage("userName") var userName: String = ""
-    @State var mealToday = "Fetching"
-    @State var mealTomorrow = "Fetching"
-    @State var mealDayAfterTomorrow = "Fetching"
-    @State var mealYesterday = "Fetching"
+    @State var mealToday = ""
+    @State var mealTomorrow = ""
+    @State var mealDayAfterTomorrow = ""
+    @State var mealYesterday = ""
     @State var mealSelection = 1
     @State var goReset = false
+    let df = DateFormatter()
+    var date = Date()
 //    let date = Date()
     let session: URLSession = URLSession.shared
 
@@ -70,8 +72,12 @@ struct HomeView: View {
                                 Text("어제 급식")
                                     .font(.title2)
                                     .fontWeight(.heavy)
-                                Text(mealYesterday)
-                                    .fontWeight(.bold)
+                                if mealYesterday.isEmpty {
+                                    ProgressView()
+                                } else {
+                                    Text(mealYesterday)
+                                        .fontWeight(.bold)
+                                }
                             }
                             .padding(h/15)
                             .foregroundColor(Color("scheme"))
@@ -83,8 +89,14 @@ struct HomeView: View {
                                     .font(.title2)
                                     .fontWeight(.heavy)
                                     .padding(.horizontal)
-                                Text(mealToday)
-                                    .fontWeight(.bold)
+                                if mealToday.isEmpty {
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: Color("scheme")))
+
+                                } else {
+                                    Text(mealToday)
+                                        .fontWeight(.bold)
+                                }
                             }
                             .padding(h/15)
                             .foregroundColor(Color("scheme"))
@@ -95,8 +107,12 @@ struct HomeView: View {
                                 Text("내일 급식")
                                     .font(.title2)
                                     .fontWeight(.heavy)
-                                Text(mealTomorrow)
-                                    .fontWeight(.bold)
+                                if mealYesterday.isEmpty {
+                                    ProgressView()
+                                } else {
+                                    Text(mealYesterday)
+                                        .fontWeight(.bold)
+                                }
                             }
                             .padding(h/15)
                             .foregroundColor(Color("scheme"))
@@ -107,8 +123,12 @@ struct HomeView: View {
                                 Text("내일 모래 급식")
                                     .font(.title3)
                                     .fontWeight(.heavy)
-                                Text(mealDayAfterTomorrow)
-                                    .fontWeight(.bold)
+                                if mealYesterday.isEmpty {
+                                    ProgressView()
+                                } else {
+                                    Text(mealYesterday)
+                                        .fontWeight(.bold)
+                                }
                             }
                             .padding(h/15)
                             .foregroundColor(Color("scheme"))
@@ -123,7 +143,10 @@ struct HomeView: View {
                     })
                     NavigationLink(destination: SettingsView(isFirstLaunching: $isFirstLaunching, userName: $userName, goReset: $goReset), isActive: $goReset, label: {})
                 }
-            }.onAppear(perform: {returnMealData()})
+            }
+            .onAppear{
+                returnMealData()
+            }
                 .navigationBarTitle("안녕하세요, \(userName)님")
                 .navigationBarItems(trailing:
                                         Button(action: {goReset = true}, label: {

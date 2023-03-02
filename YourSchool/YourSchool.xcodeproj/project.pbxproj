@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		910E19862982C12F004EBD04 /* appleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E19852982C12F004EBD04 /* appleMapView.swift */; };
-		910E19B12983F4E2004EBD04 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E19B02983F4E2004EBD04 /* tests.swift */; };
 		91215A2D29AF27E80012779C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91215A2C29AF27E80012779C /* Settings.swift */; };
 		913E074F297FC43000782981 /* YourSchoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E074E297FC43000782981 /* YourSchoolApp.swift */; };
 		913E0751297FC43000782981 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E0750297FC43000782981 /* ContentView.swift */; };
@@ -17,15 +16,13 @@
 		913E0760297FC43100782981 /* YourSchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E075F297FC43100782981 /* YourSchoolTests.swift */; };
 		913E076A297FC43100782981 /* YourSchoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E0769297FC43100782981 /* YourSchoolUITests.swift */; };
 		913E076C297FC43100782981 /* YourSchoolUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E076B297FC43100782981 /* YourSchoolUITestsLaunchTests.swift */; };
-		9154DB61298223C3009A4C7E /* date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9154DB60298223C3009A4C7E /* date.swift */; };
 		918E328C2982ADCE00CAFCC6 /* goingToSchoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918E328B2982ADCE00CAFCC6 /* goingToSchoolView.swift */; };
 		918E328E2982B4FD00CAFCC6 /* schoolData.json in Resources */ = {isa = PBXBuildFile; fileRef = 918E328D2982B4FC00CAFCC6 /* schoolData.json */; };
-		919A2D062981117F002314FC /* mealFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A2D052981117F002314FC /* mealFetcher.swift */; };
+		919A2D062981117F002314FC /* mealJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A2D052981117F002314FC /* mealJson.swift */; };
 		91B347802982364600AAC9DF /* meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3477F2982364600AAC9DF /* meal.swift */; };
 		91B34782298299E500AAC9DF /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B34781298299E500AAC9DF /* Launch.storyboard */; };
 		91B3478429829C8700AAC9DF /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3478329829C8700AAC9DF /* Map.swift */; };
 		91D1B54D2984F08B00C32064 /* DLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1B54C2984F08B00C32064 /* DLS.swift */; };
-		91D1B54F2985045700C32064 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D1B54E2985045700C32064 /* LocationManager.swift */; };
 		91D1B5532985149E00C32064 /* CLLocationSimLoc.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 91D1B5522985149E00C32064 /* CLLocationSimLoc.gpx */; };
 		91FA0AEC2990AB480045AE3E /* onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA0AEB2990AB480045AE3E /* onboarding.swift */; };
 		95BECAF4E78B30167777F95B /* Pods_YourSchoolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D333F751A64B3FBB8EF36D /* Pods_YourSchoolTests.framework */; };
@@ -71,7 +68,6 @@
 		8B1C3FAB9AC5F79ED8462088 /* Pods-YourSchoolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourSchoolTests.debug.xcconfig"; path = "Target Support Files/Pods-YourSchoolTests/Pods-YourSchoolTests.debug.xcconfig"; sourceTree = "<group>"; };
 		910E19852982C12F004EBD04 /* appleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appleMapView.swift; sourceTree = "<group>"; };
 		910E19AA2983A44A004EBD04 /* TMapSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TMapSDK.framework; sourceTree = "<group>"; };
-		910E19B02983F4E2004EBD04 /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		91215A2C29AF27E80012779C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		913E074B297FC43000782981 /* YourSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		913E074E297FC43000782981 /* YourSchoolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSchoolApp.swift; sourceTree = "<group>"; };
@@ -83,15 +79,13 @@
 		913E0765297FC43100782981 /* YourSchoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourSchoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		913E0769297FC43100782981 /* YourSchoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSchoolUITests.swift; sourceTree = "<group>"; };
 		913E076B297FC43100782981 /* YourSchoolUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSchoolUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9154DB60298223C3009A4C7E /* date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = date.swift; sourceTree = "<group>"; };
 		918E328B2982ADCE00CAFCC6 /* goingToSchoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goingToSchoolView.swift; sourceTree = "<group>"; };
 		918E328D2982B4FC00CAFCC6 /* schoolData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schoolData.json; sourceTree = "<group>"; };
-		919A2D052981117F002314FC /* mealFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mealFetcher.swift; sourceTree = SOURCE_ROOT; };
+		919A2D052981117F002314FC /* mealJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mealJson.swift; sourceTree = SOURCE_ROOT; };
 		91B3477F2982364600AAC9DF /* meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meal.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		91B34781298299E500AAC9DF /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		91B3478329829C8700AAC9DF /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		91D1B54C2984F08B00C32064 /* DLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLS.swift; sourceTree = "<group>"; };
-		91D1B54E2985045700C32064 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		91D1B5522985149E00C32064 /* CLLocationSimLoc.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CLLocationSimLoc.gpx; sourceTree = "<group>"; };
 		91FA0AEB2990AB480045AE3E /* onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboarding.swift; sourceTree = "<group>"; usesTabs = 1; };
 		98D333F751A64B3FBB8EF36D /* Pods_YourSchoolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourSchoolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +171,7 @@
 		913E074D297FC43000782981 /* YourSchool */ = {
 			isa = PBXGroup;
 			children = (
-				919A2D052981117F002314FC /* mealFetcher.swift */,
+				919A2D052981117F002314FC /* mealJson.swift */,
 				91B3477F2982364600AAC9DF /* meal.swift */,
 				91D1B5522985149E00C32064 /* CLLocationSimLoc.gpx */,
 				91B34781298299E500AAC9DF /* Launch.storyboard */,
@@ -185,12 +179,9 @@
 				913E0750297FC43000782981 /* ContentView.swift */,
 				91215A2C29AF27E80012779C /* Settings.swift */,
 				91FA0AEB2990AB480045AE3E /* onboarding.swift */,
-				910E19B02983F4E2004EBD04 /* tests.swift */,
-				91D1B54E2985045700C32064 /* LocationManager.swift */,
 				91D1B54C2984F08B00C32064 /* DLS.swift */,
-				9154DB60298223C3009A4C7E /* date.swift */,
 				910E19852982C12F004EBD04 /* appleMapView.swift */,
-				918E32962982B72800CAFCC6 /* Views */,
+				918E328B2982ADCE00CAFCC6 /* goingToSchoolView.swift */,
 				91B3478329829C8700AAC9DF /* Map.swift */,
 				918E32942982B6FA00CAFCC6 /* Resources */,
 				913E0752297FC43100782981 /* Assets.xcassets */,
@@ -230,14 +221,6 @@
 				918E328D2982B4FC00CAFCC6 /* schoolData.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		918E32962982B72800CAFCC6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				918E328B2982ADCE00CAFCC6 /* goingToSchoolView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,15 +469,12 @@
 				91B347802982364600AAC9DF /* meal.swift in Sources */,
 				91215A2D29AF27E80012779C /* Settings.swift in Sources */,
 				913E0751297FC43000782981 /* ContentView.swift in Sources */,
-				91D1B54F2985045700C32064 /* LocationManager.swift in Sources */,
-				9154DB61298223C3009A4C7E /* date.swift in Sources */,
-				919A2D062981117F002314FC /* mealFetcher.swift in Sources */,
+				919A2D062981117F002314FC /* mealJson.swift in Sources */,
 				910E19862982C12F004EBD04 /* appleMapView.swift in Sources */,
 				91B3478429829C8700AAC9DF /* Map.swift in Sources */,
 				918E328C2982ADCE00CAFCC6 /* goingToSchoolView.swift in Sources */,
 				913E074F297FC43000782981 /* YourSchoolApp.swift in Sources */,
 				91FA0AEC2990AB480045AE3E /* onboarding.swift in Sources */,
-				910E19B12983F4E2004EBD04 /* tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

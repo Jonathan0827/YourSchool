@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 
 struct mealView: View {
-    @State var mealInfo = "fetching"
+    @State var mealInfo = ""
     @State var mealDate = Date() {
         didSet(oldValue){
             print(mealInfo)
@@ -17,6 +17,7 @@ struct mealView: View {
         }
     }
     @State var df = DateFormatter()
+    let sDf = DateFormatter()
     @State var showMeal: Bool = false
     var body: some View {
         NavigationView{
@@ -34,10 +35,15 @@ struct mealView: View {
                     .padding(.top)
                     ZStack{
                         VStack{
-                            Text(df.string(from: mealDate))
-                            Text(mealInfo)
-                                .font(.title2)
-                                .fontWeight(.semibold)
+                            Text(sDf.string(from: mealDate))
+                            if mealInfo.isEmpty {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: Color("scheme")))
+
+                            } else {
+                                Text(mealInfo)
+                                    .fontWeight(.bold)
+                            }
                         }
                         Spacer()
                             .frame(height: h/3)
@@ -52,7 +58,10 @@ struct mealView: View {
                     returnMealData()
                 })
             }
-        }.onAppear(perform: {returnMealData()})
+        }.onAppear{
+            returnMealData()
+            sDf.dateFormat = "yyyy년 MM일 dd일"
+        }
 //        .onTapGesture {
 //                returnMealData()
 //            }
