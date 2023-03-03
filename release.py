@@ -14,7 +14,7 @@ f.write('''
         "description": "Unofficial app for Wonsinheung Middle School.",
         "bundleID": "com.junehyeop.YourSchool",
         "category": "App",
-        "changelog": "'''+"-"+sys.argv[2]+'''"
+        "changelog": "'''+"- "+sys.argv[2]+'''"
     }]
 }
 ''')
