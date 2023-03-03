@@ -38,7 +38,7 @@ struct mealView: View {
                             Text(sDf.string(from: mealDate))
                             if mealInfo.isEmpty {
                                 ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: Color("scheme")))
+                                    .progressViewStyle(CircularProgressViewStyle(tint: .primary))
 
                             } else {
                                 Text(mealInfo)
