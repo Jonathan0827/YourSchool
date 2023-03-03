@@ -27,15 +27,22 @@ extension Date {
 }
 struct ContentView: View {
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @State var rnum = Int.random(in: 0...5)
+    let colors = [Color.red, Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]
     var body: some View{
         TabView{
-            HomeView()
-                .tabItem({Image(systemName: "building.columns.circle");Text("Home")})
-            goingToSchoolView()
+            HomeView(rnum: $rnum)
+                .tabItem({
+                    Image(systemName: "building.columns.circle")
+                    Text("Home")
+                })
+            goingToSchoolView(rnum: $rnum)
                 .tabItem({Image(systemName: "map.circle");Text("Map")})
         }.fullScreenCover(isPresented: $isFirstLaunching) {
             OnboardingView(isFirstLaunching: $isFirstLaunching)
         }
+        .accentColor(colors[rnum])
+        
         .onAppear{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "mm"
@@ -49,6 +56,9 @@ struct ContentView: View {
 struct HomeView: View {
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     @AppStorage("userName") var userName: String = ""
+    @Binding var rnum: Int
+    var num = Int.random(in: 0...5)
+
     @State var mealToday = ""
     @State var mealTomorrow = ""
     @State var mealDayAfterTomorrow = ""
@@ -146,6 +156,7 @@ struct HomeView: View {
             }
             .onAppear{
                 returnMealData()
+                rnum = num
             }
                 .navigationBarTitle("안녕하세요, \(userName)님")
                 .navigationBarItems(trailing:

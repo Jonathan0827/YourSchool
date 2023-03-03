@@ -140,7 +140,10 @@ struct DestinationInfoView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.black)
-                    .frame(width: 100000, height: 80)
+                    .frame(width: 100000, height: 100)
+                    .padding(.top, 30)
+                    
+
                 Button(action: {
                     showDirectionsInfo.toggle()
                 }, label: {
@@ -156,11 +159,9 @@ struct DestinationInfoView: View {
                         
                     }
                     
-                    .shadow(color: .black, radius: 10)
                     //                .ignoresSafeArea()
                     
                 })
-                .padding(.top, -100)
             }
         }.background(.black)
             .ignoresSafeArea()

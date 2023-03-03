@@ -287,7 +287,7 @@ struct LocationPermissionReqView: View {
 							.resizable()
 							.frame(width: 20, height: 20)
 							.foregroundColor(.red)
-						Text("GPS를 사용이 거부되었습니다.")
+						Text("GPS 사용이 거부되었습니다.")
 							.fontWeight(.bold)
 					}
 					.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5).delay(1.3)))

@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 import CoreLocation
 struct goingToSchoolView: View {
+    @Binding var rnum: Int
+    let num = Int.random(in: 0...5)
     var body: some View {
         NavigationView{
             VStack{
@@ -44,6 +46,9 @@ struct goingToSchoolView: View {
             }.padding(.top, -100.0)
             .navigationBarTitle("학교 길안내")
         }
+        .onAppear{
+            rnum = num
+        }
     }
 }
 
@@ -62,10 +67,4 @@ struct MapView: View {
                 span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
             )
         }
-}
-struct goingToSchoolView_Previews: PreviewProvider {
-    static var previews: some View {
-        goingToSchoolView()
-        MapView(coordinate: CLLocationCoordinate2D(latitude: 36.333065000000005, longitude: 127.34531979051518))
-    }
 }
