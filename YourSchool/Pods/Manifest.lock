@@ -1,12 +1,14 @@
 PODS:
   - Alamofire (5.6.4)
   - CenteredCollectionView (2.2.2)
+  - lottie-ios (4.1.3)
   - SwiftSoup (2.5.3)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - CenteredCollectionView
+  - lottie-ios
   - SwiftSoup
   - SwiftyJSON
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CenteredCollectionView
+    - lottie-ios
     - SwiftSoup
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   CenteredCollectionView: a9217908a698c386cbb98af11b596da48900b908
+  lottie-ios: d0954d3150061f662ed0adf96ef98d7421864c47
   SwiftSoup: 33e8d374021a6c332788f78fa29a93227d8a7699
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 3c1ab386b11195ab3bc81a008a5945dcf3f2ff21
+PODFILE CHECKSUM: 8f191bf3bc91bc2e25e913d2ce919054e909c1bb
 
 COCOAPODS: 1.11.3
