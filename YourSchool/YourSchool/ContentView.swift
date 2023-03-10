@@ -27,8 +27,9 @@ extension Date {
 }
 struct ContentView: View {
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @AppStorage("rainBar") var rainBar: Bool = true
     @State var rnum = Int.random(in: 0...5)
-    let colors = [Color.red, Color.orange, Color.yellow, Color.green, Color.blue, Color.purple]
+    @State var colors = [Color.blue, Color.red, Color.orange, Color.yellow, Color.green, Color.purple]
     var body: some View{
         TabView{
             HomeView(rnum: $rnum)
@@ -44,6 +45,13 @@ struct ContentView: View {
         .accentColor(colors[rnum])
         
         .onAppear{
+            if rainBar {
+                print("rainBar enabled")
+            } else {
+                print("rainBar disabled")
+//                colors = [Color.blue, Color.blue, Color.blue, Color.blue, Color.blue, Color.blue]
+
+            }
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "mm"
             print(Date().startOfWeek)
@@ -56,6 +64,8 @@ struct ContentView: View {
 struct HomeView: View {
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     @AppStorage("userName") var userName: String = ""
+    @AppStorage("rainBar") var rainBar: Bool = true
+
     @Binding var rnum: Int
     var num = Int.random(in: 0...5)
 
@@ -151,12 +161,16 @@ struct HomeView: View {
                         .tabViewStyle(PageTabViewStyle())
                         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     })
-                    NavigationLink(destination: SettingsView(isFirstLaunching: $isFirstLaunching, userName: $userName, goReset: $goReset), isActive: $goReset, label: {})
+                    NavigationLink(destination: SettingsView(isFirstLaunching: $isFirstLaunching, userName: $userName, goReset: $goReset, rnum: $rnum), isActive: $goReset, label: {})
                 }
             }
             .onAppear{
                 returnMealData()
-                rnum = num
+                if rainBar{
+                    rnum = num
+                } else {
+                    rnum = 0
+                }
             }
                 .navigationBarTitle("안녕하세요, \(userName)님")
                 .navigationBarItems(trailing:

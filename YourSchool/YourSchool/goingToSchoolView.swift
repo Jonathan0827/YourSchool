@@ -10,6 +10,8 @@ import MapKit
 import CoreLocation
 struct goingToSchoolView: View {
     @Binding var rnum: Int
+    @AppStorage("rainBar") var rainBar: Bool = true
+
     let num = Int.random(in: 0...5)
     var body: some View {
         NavigationView{
@@ -47,8 +49,11 @@ struct goingToSchoolView: View {
             .navigationBarTitle("학교 길안내")
         }
         .onAppear{
-            rnum = num
-        }
+            if rainBar{
+                rnum = num
+            } else {
+                rnum = 0
+            }        }
     }
 }
 

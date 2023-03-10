@@ -11,6 +11,10 @@ struct SettingsView: View {
     @Binding var isFirstLaunching: Bool
     @Binding var userName: String
     @Binding var goReset: Bool
+    @AppStorage("rainBar") var rainBar: Bool = true
+    @Binding var rnum: Int
+    var num = Int.random(in: 0...5)
+
     var body: some View {
         VStack{
             Form {
@@ -23,6 +27,16 @@ struct SettingsView: View {
 //                        .foregroundColor(.primary)
 //                    })
 //                }
+                Section{
+                    Toggle("Color Bar 활성화", isOn: $rainBar)
+                        .onTapGesture {
+                            if rainBar {
+                                rnum = num
+                            } else {
+                                rnum = 0
+                            }
+                        }
+                }
                 Section{
                     Button(action: {isFirstLaunching = true;userName = "";goReset = false}, label: {
                         HStack{
