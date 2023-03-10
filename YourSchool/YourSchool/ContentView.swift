@@ -120,7 +120,7 @@ struct HomeView: View {
                                 if mealYesterday.isEmpty {
                                     ProgressView()
                                 } else {
-                                    Text(mealYesterday)
+                                    Text(mealTomorrow)
                                         .fontWeight(.bold)
                                 }
                             }
@@ -136,7 +136,7 @@ struct HomeView: View {
                                 if mealYesterday.isEmpty {
                                     ProgressView()
                                 } else {
-                                    Text(mealYesterday)
+                                    Text(mealDayAfterTomorrow)
                                         .fontWeight(.bold)
                                 }
                             }
