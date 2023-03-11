@@ -1,4 +1,1 @@
-
-<h1>YourSchool</h1>
-<h2>(비공식) 원신흥중학교 앱</h2>
-
+<strong><h1>2023/03/11: Moved to <a href="https://github.com/Jonathan0827/WonsinheungMid">here</a></strong>
